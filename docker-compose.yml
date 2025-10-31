@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  # Admin Frontend
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: creditjambo-admin-frontend
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:3001/admin
+    ports:
+      - "3003:3003"
+    networks:
+      - creditjambo-network
+    restart: unless-stopped
+
+networks:
+  creditjambo-network:
+    driver: bridge
+
