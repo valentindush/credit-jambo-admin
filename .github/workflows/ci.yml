@@ -49,4 +49,6 @@ jobs:
           file: ./frontend/Dockerfile
           push: false
           tags: creditjambo-admin-frontend:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
